@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { motion } from 'framer-motion';
+import { loadGoogleTag } from '@/lib/googleTag';
 
 interface FormModalContextType {
   openFormModal: () => void;

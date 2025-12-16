@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useFormModal } from '@/contexts/FormModalContext';
+import { loadGoogleTag } from '@/lib/googleTag';
 
 export default function ConversionOptimizedHero() {
   const { openFormModal } = useFormModal();
