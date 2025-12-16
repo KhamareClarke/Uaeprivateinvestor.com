@@ -80,6 +80,8 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
 
     const handleFormSuccess = () => {
       if (!showFormSuccess) {
+        // Load Google Tag for conversion tracking
+        loadGoogleTag();
         setShowFormSuccess(true);
         setTimeout(() => {
           setShowFormSuccess(false);
@@ -242,4 +244,5 @@ export function useFormModal() {
   }
   return context;
 }
+
 

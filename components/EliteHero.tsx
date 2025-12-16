@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import { useFormModal } from '@/contexts/FormModalContext';
+import { loadGoogleTag } from '@/lib/googleTag';
 
 export default function EliteHero() {
   const [formData, setFormData] = useState({ 
@@ -81,6 +82,8 @@ export default function EliteHero() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      // Load Google Tag for conversion tracking
+      loadGoogleTag();
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 5000);
       setFormData({ name: '', whatsapp: '', email: '', investmentRange: '', preferredProject: '' });

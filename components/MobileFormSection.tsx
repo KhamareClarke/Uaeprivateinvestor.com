@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import { loadGoogleTag } from '@/lib/googleTag';
 
 export default function MobileFormSection() {
   // Load GHL form embed script
@@ -14,6 +15,48 @@ export default function MobileFormSection() {
     script.type = 'text/javascript';
     script.async = true;
     document.body.appendChild(script);
+  }, []);
+
+  // Listen for form submission events from the iframe
+  useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      const isFromForm = event.origin.includes('leadconnectorhq.com') || 
+                        event.origin.includes('msgsndr.com') ||
+                        event.data?.formId === '7RM5Dr1meRUfG03B13ci';
+
+      if (!isFromForm) return;
+
+      if (event.data) {
+        if (typeof event.data === 'string') {
+          try {
+            const data = JSON.parse(event.data);
+            if (data.type === 'hsFormCallback' || 
+                data.event === 'form-submitted' || 
+                data.action === 'submit' ||
+                data.type === 'formSubmitted' ||
+                data.status === 'success') {
+              loadGoogleTag();
+            }
+          } catch (e) {
+            const messageStr = event.data.toLowerCase();
+            if (messageStr.includes('form-submitted') || 
+                messageStr.includes('formsubmitted') ||
+                (messageStr.includes('success') && messageStr.includes('form'))) {
+              loadGoogleTag();
+            }
+          }
+        } else if (typeof event.data === 'object') {
+          if (event.data.type === 'formSubmitted' || 
+              event.data.event === 'form-submitted' ||
+              event.data.status === 'success') {
+            loadGoogleTag();
+          }
+        }
+      }
+    };
+
+    window.addEventListener('message', handleMessage);
+    return () => window.removeEventListener('message', handleMessage);
   }, []);
 
   return (

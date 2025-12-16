@@ -32,6 +32,8 @@ export default function ConversionOptimizedHero() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
+      // Load Google Tag for conversion tracking
+      loadGoogleTag();
       setShowSuccess(true);
       setTimeout(() => setShowSuccess(false), 5000);
       setFormData({ name: '', whatsapp: '', email: '', investmentRange: '', preferredProject: '' });
