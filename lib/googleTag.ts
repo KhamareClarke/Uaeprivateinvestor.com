@@ -10,8 +10,8 @@ declare global {
 }
 
 export function loadGoogleTag() {
-  // Check if already loaded
-  if (window.dataLayer && window.gtag) {
+  // Check if script is already loaded
+  if (document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
     return;
   }
 
@@ -24,11 +24,9 @@ export function loadGoogleTag() {
   gtag('js', new Date());
   gtag('config', 'AW-17787737097');
 
-  // Load the script if not already present
-  if (!document.querySelector('script[src*="googletagmanager.com/gtag/js"]')) {
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17787737097';
-    document.head.appendChild(script);
-  }
+  // Load the script
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = 'https://www.googletagmanager.com/gtag/js?id=AW-17787737097';
+  document.head.appendChild(script);
 }
