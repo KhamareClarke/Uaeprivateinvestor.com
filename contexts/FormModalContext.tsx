@@ -141,7 +141,7 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
             </div>
 
             {/* Iframe Container */}
-            <div className="relative w-full bg-white overflow-hidden" style={{ height: '600px', maxHeight: 'calc(90vh - 140px)' }}>
+            <div className="relative w-full bg-white overflow-y-auto" style={{ maxHeight: 'calc(90vh - 140px)', minHeight: '600px' }}>
               {/* Overlay to hide form's close button */}
               <div className="absolute top-0 right-0 w-12 h-12 bg-white z-10 pointer-events-none" />
               
@@ -209,8 +209,8 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
                 style={{
                   display: showFormSuccess ? 'none' : 'block',
                   width: '100%',
-                  height: '100%',
-                  minHeight: '600px',
+                  height: '800px',
+                  minHeight: '800px',
                   border: 'none',
                   borderRadius: '0 0 16px 16px',
                   pointerEvents: showFormSuccess ? 'none' : 'auto'
@@ -224,11 +224,11 @@ export function FormModalProvider({ children }: { children: ReactNode }) {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Form 1"
-                data-height="600"
+                data-height="800"
                 data-layout-iframe-id="popup-7RM5Dr1meRUfG03B13ci"
                 data-form-id="7RM5Dr1meRUfG03B13ci"
                 title="Form 1"
-                scrolling="auto"
+                scrolling="yes"
               />
             </div>
           </motion.div>

@@ -216,9 +216,45 @@ export default function Elite3DPropertyCards() {
             ))}
           </div>
 
-          {/* Bottom CTA */}
+          {/* Two CTA Buttons - Outside Cards, One for Each Property - No Gap */}
           <motion.div
-            className="text-center mt-8 space-y-3"
+            className="grid lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8 xl:gap-10 -mt-2 relative z-50"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {properties.map((property, index) => (
+              <motion.button
+                key={property.id}
+                onClick={openFormModal}
+                className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 text-white font-bold text-base sm:text-lg px-6 sm:px-8 py-4 sm:py-5 rounded-b-2xl rounded-t-none shadow-2xl hover:shadow-primary-500/40 transition-all flex items-center justify-center gap-3 group border border-primary-400/20 border-t-0 min-h-[44px] w-full cursor-pointer"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                style={{ pointerEvents: 'auto', position: 'relative', zIndex: 999 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                Request Investment Breakdown
+                <motion.svg
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  animate={{ x: [0, 5, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </motion.svg>
+              </motion.button>
+            ))}
+          </motion.div>
+
+          {/* Bottom CTA - Request a Private Investment Review */}
+          <motion.div
+            className="text-center mt-8 sm:mt-10 space-y-3 relative z-50"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -226,9 +262,10 @@ export default function Elite3DPropertyCards() {
           >
             <motion.button
               onClick={openFormModal}
-              className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 text-white font-bold text-lg px-12 py-5 rounded-2xl shadow-2xl hover:shadow-primary-500/40 transition-all flex items-center gap-3 mx-auto group border border-primary-400/20 relative z-20"
+              className="bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 text-white font-bold text-lg px-12 py-5 rounded-2xl shadow-2xl hover:shadow-primary-500/40 transition-all flex items-center justify-center gap-3 mx-auto group border border-primary-400/20 min-h-[44px] w-full sm:w-auto cursor-pointer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              style={{ pointerEvents: 'auto', position: 'relative', zIndex: 999 }}
             >
               Request a Private Investment Review
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -690,31 +727,10 @@ function Property3DCard({ property, index, openGallery }: { property: any; index
               </p>
             </div>
           )}
-
-          {/* CTA Button */}
-          <motion.a 
-            onClick={openFormModal}
-            className="block w-full bg-gradient-to-r from-primary-500 via-primary-600 to-primary-700 hover:from-primary-600 hover:via-primary-700 hover:to-primary-800 text-white font-bold py-4 sm:py-5 px-4 sm:px-6 md:px-8 rounded-2xl transition-all shadow-2xl hover:shadow-primary-500/40 flex items-center justify-center gap-3 group border border-primary-400/20 text-base sm:text-lg min-h-[44px] cursor-pointer relative z-[100] mt-2"
-            style={{ pointerEvents: 'auto', textDecoration: 'none' }}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Request Investment Breakdown
-            <motion.svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              animate={{ x: [0, 5, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity }}
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-            </motion.svg>
-          </motion.a>
         </div>
 
         {/* Hover Glow Effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 via-primary-500/0 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-500/0 via-primary-500/0 to-primary-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
       </motion.div>
     </motion.div>
   );

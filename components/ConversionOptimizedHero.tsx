@@ -231,17 +231,17 @@ export default function ConversionOptimizedHero() {
                     </div>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
-                    <div className="space-y-3 sm:space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-2.5">
+                    <div className="space-y-2">
                       <div>
                         <input
                           type="text"
                           placeholder="Full Name"
                           value={formData.name}
                           onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                          className={`w-full px-4 sm:px-5 py-3 sm:py-4 border ${errors.name ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-base placeholder-gray-500 transition-all min-h-[44px]`}
+                          className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 border ${errors.name ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-sm sm:text-base placeholder-gray-500 transition-all min-h-[40px]`}
                         />
-                        {errors.name && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.name}</p>}
+                        {errors.name && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.name}</p>}
                       </div>
 
                       <div>
@@ -250,27 +250,27 @@ export default function ConversionOptimizedHero() {
                           placeholder="Email Address"
                           value={formData.email}
                           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                          className={`w-full px-4 sm:px-5 py-3 sm:py-4 border ${errors.email ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-base placeholder-gray-500 transition-all min-h-[44px]`}
+                          className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 border ${errors.email ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-sm sm:text-base placeholder-gray-500 transition-all min-h-[40px]`}
                         />
-                        {errors.email && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.email}</p>}
+                        {errors.email && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.email}</p>}
                       </div>
 
                       <div>
                         <input
                           type="tel"
-                          placeholder="WhatsApp Number (with country code)"
+                          placeholder="Phone"
                           value={formData.whatsapp}
                           onChange={(e) => setFormData({ ...formData, whatsapp: e.target.value })}
-                          className={`w-full px-4 sm:px-5 py-3 sm:py-4 border ${errors.whatsapp ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-base placeholder-gray-500 transition-all min-h-[44px]`}
+                          className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 border ${errors.whatsapp ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-sm sm:text-base placeholder-gray-500 transition-all min-h-[40px]`}
                         />
-                        {errors.whatsapp && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.whatsapp}</p>}
+                        {errors.whatsapp && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.whatsapp}</p>}
                       </div>
 
                       <div>
                         <select
                           value={formData.investmentRange}
                           onChange={(e) => setFormData({ ...formData, investmentRange: e.target.value })}
-                          className={`w-full px-4 sm:px-5 py-3 sm:py-4 border ${errors.investmentRange ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-base placeholder-gray-500 transition-all min-h-[44px]`}
+                          className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 border ${errors.investmentRange ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-sm sm:text-base placeholder-gray-500 transition-all min-h-[40px]`}
                         >
                           <option value="">Indicative Investment Range</option>
                           <option value="500k-1m">AED 500K - 1M</option>
@@ -278,31 +278,31 @@ export default function ConversionOptimizedHero() {
                           <option value="2m-5m">AED 2M - 5M</option>
                           <option value="5m+">AED 5M+</option>
                         </select>
-                        {errors.investmentRange && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.investmentRange}</p>}
+                        {errors.investmentRange && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.investmentRange}</p>}
                       </div>
 
                       <div>
                         <select
                           value={formData.preferredProject}
                           onChange={(e) => setFormData({ ...formData, preferredProject: e.target.value })}
-                          className={`w-full px-4 sm:px-5 py-3 sm:py-4 border ${errors.preferredProject ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-base placeholder-gray-500 transition-all min-h-[44px]`}
+                          className={`w-full px-3 sm:px-4 py-2 sm:py-2.5 border ${errors.preferredProject ? 'border-red-400' : 'border-gray-300 focus:border-[#FF6A00]'} rounded-lg bg-white focus:outline-none text-black font-medium text-sm sm:text-base placeholder-gray-500 transition-all min-h-[40px]`}
                         >
-                          <option value="">Jurisdiction Preference (Abu Dhabi • Dubai • Both)</option>
+                          <option value="">Jurisdiction Preference (Abu Dhabi/Dubai)</option>
                           <option value="abu-dhabi">Abu Dhabi</option>
                           <option value="dubai">Dubai</option>
                           <option value="both">Both</option>
                         </select>
-                        {errors.preferredProject && <p className="text-red-500 text-xs mt-2 font-semibold">{errors.preferredProject}</p>}
+                        {errors.preferredProject && <p className="text-red-500 text-xs mt-1 font-semibold">{errors.preferredProject}</p>}
                       </div>
                     </div>
 
-                    <div className="space-y-3 sm:space-y-4 pt-1">
+                    <div className="space-y-2 pt-1">
                       <button
                         type="submit"
-                        className="w-full bg-[#FF6A00] hover:bg-[#FF8534] text-white font-bold tracking-wide text-base sm:text-lg py-4 sm:py-5 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 sm:gap-3 shadow-xl shadow-[#FF6A00]/30 hover:shadow-2xl hover:scale-105 min-h-[44px]"
+                        className="w-full bg-[#FF6A00] hover:bg-[#FF8534] text-white font-bold tracking-wide text-sm sm:text-base py-2.5 sm:py-3 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-xl shadow-[#FF6A00]/30 hover:shadow-2xl hover:scale-105 min-h-[40px]"
                       >
-                        <span>Request Private Review</span>
-                        <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <span>Request Private Access</span>
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
                       </button>

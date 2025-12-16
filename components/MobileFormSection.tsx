@@ -92,15 +92,15 @@ export default function MobileFormSection() {
             </div>
 
             {/* GHL Embedded Form */}
-            <div className="relative w-full" style={{ minHeight: '625px' }}>
+            <div className="relative w-full overflow-y-auto" style={{ minHeight: '700px', maxHeight: '800px' }}>
               <iframe
                 src="https://api.leadconnectorhq.com/widget/form/7RM5Dr1meRUfG03B13ci"
                 style={{
                   width: '100%',
-                  height: '100%',
+                  height: '800px',
                   border: 'none',
                   borderRadius: '3px',
-                  minHeight: '625px'
+                  minHeight: '800px'
                 }}
                 id="inline-mobile-7RM5Dr1meRUfG03B13ci"
                 data-layout="{'id':'INLINE'}"
@@ -111,10 +111,11 @@ export default function MobileFormSection() {
                 data-deactivation-type="neverDeactivate"
                 data-deactivation-value=""
                 data-form-name="Form 1"
-                data-height="625"
+                data-height="800"
                 data-layout-iframe-id="inline-mobile-7RM5Dr1meRUfG03B13ci"
                 data-form-id="7RM5Dr1meRUfG03B13ci"
                 title="Form 1"
+                scrolling="yes"
               />
             </div>
 
